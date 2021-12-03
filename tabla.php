@@ -4,7 +4,6 @@ $username = "phpuser";
 $password = "shampopo64";
 $dbname = "myDB";
 
-//CREAMOS LA CONEXIÓN CON EL SERVIDOR QUE SE ALMACENARÁ EN $conexion
 $Req=new PDO("mysql:host=$servername;dbname=$dbname",$username,$password );
 $Req->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 $Qfunct = "SELECT * FROM Myguests";
@@ -13,12 +12,9 @@ $respuesta->execute();
 
 $objeto = array();
 
-
-/* array asociativo */
 while ($row = $respuesta->fetch(PDO::FETCH_ASSOC)){
     
-   
-    $users ['Usuarios registrados'][] = $row;
+$users ['Usuarios registrados'][] = $row;
 
 }
 echo json_encode($users);
